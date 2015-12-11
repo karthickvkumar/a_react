@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inside</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css">
+    <style>
+        #errorBox{ color:#F00; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="http://insidepoc.protechglobalsolutions.com"><img src="images/logo.png" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="purchase.php">Purchase Again</a></li>
+                    <li><a href="javascript:void(0)">Welcome! <b>Vishnu</b></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h3></h3>
+            <button id="launchQuiz" class="btn btn-default btn pull-right">Quiz</button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Quiz</h4>
+                            </div>
+                        <form name="form">
+                            <div class="modal-body">
+                                <div id="errorBox"></div>
+
+                                <h5>1.What social service has Facebook not acqiured?</h5>
+                                  <input type="radio" name="radiobutton1" value="whatsapp">&nbsp;WhatsApp
+                                  <br>
+                                  <input type="radio" name="radiobutton1" value="instagram">&nbsp;Instagram
+                                  <br>
+                                  <input type="radio" name="radiobutton1" value="snapchat">&nbsp;Snapchat
+                                <h5>2.What social media activity did the people unexpectedly engage in?</h5>
+                                  <input type="radio" name="radiobutton2" value="google">&nbsp;He hosted a Google Hangout
+                                  <br>
+                                  <input type="radio" name="radiobutton2" value="neknominated">&nbsp;He neknominated
+                                  <br>
+                                  <input type="radio" name="radiobutton2" value="selfie">&nbsp;He took a selfie
+                                <h5>3.How many pictures are sent via self-destructive photo sharing service Snapchat each &nbsp;&nbsp;&nbsp;day?</h5>
+                                  <input type="radio" name="radiobutton3" value="125">&nbsp;125 million
+                                  <br>
+                                  <input type="radio" name="radiobutton3" value="350">&nbsp;350 million
+                                  <br>
+                                  <input type="radio" name="radiobutton3" value="475">&nbsp;475 million
+                                <h5>4.Why social media is a powerful tool?</h5>
+                                    <textarea name="Text" rows="3" cols="67"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="submitQuiz" type="button" class="btn btn-default btn pull-left">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+        <footer>
+            <p>&copy; 2015 Company, Inc.</p>
+        </footer>
+    </div>
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#launchQuiz").click(function() {
+            $('#myModal').find("form")[0].reset();
+            $('#errorBox').html('');
+            $('#myModal').modal({
+                backdrop: "static",
+                keyboard: false,
+                show: true
+            });
+        });
+        var validateQuiz = function() {
+            if (!$("input[name='radiobutton1']:checked").val()) {
+                return false;
+            }
+            if (!$("input[name='radiobutton2']:checked").val()) {
+                return false;
+            }
+            if (!$("input[name='radiobutton3']:checked").val()) {
+                return false;
+            }
+            if (!$("textarea[name='Text']").val()) {
+                return false;
+            }
+            return true;
+        };
+        $("#submitQuiz").click(function() {
+            if(validateQuiz()) {
+                $('#myModal').modal('hide');
+            } else {
+                $('#errorBox').html('Please answer all questions');
+            }
+
+        });
+    });
+    </script>
+</body>
+
+</html>

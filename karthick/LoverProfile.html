@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - My Profile</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/lover.jsx"></script>
+    <script type="text/jsx">
+var profile_data = [
+  {
+  "name"        : "Karthick Kumar",
+  "img"         : "img/avatar5.png",
+  "role"        : "Web Developer",
+  "joinedDate"  : "Nov. 2012"
+
+  }
+]
+var LoverComponent = React.createClass({
+  render: function(){
+    return (
+<Element class="wrapper">
+  <Header>
+    <Logo href="#">
+      <span className="logo-mini">Love</span>
+      <span className="logo-lg">Love</span>
+    </Logo>
+    <Navbar>
+        <Element className="navbar-custom-menu">
+          <Navs />
+        </Element>
+    </Navbar>
+  </Header>
+</Element>
+     );
+   }
+});
+    React.render(<LoverComponent />,document.getElementById('content'));
+  </script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div id="content">
+  </div>
+  <footer class="main-footer navbar-fixed-bottom">
+      <div class="pull-right hidden-xs">
+      </div>
+      <strong>Love Copyright &copy; 2015.</strong> All rights reserved.
+  </footer>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aphrodite Component Library</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js">
+        </script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/jquery.daterangepicker.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/aphrodite.jsx"></script>
+    <script type="text/jsx">
+var tbody_data = [
+  {
+    "r1cell"  :1,
+    "r2cell"  :"kumar",
+    "r3cell"  :"karthick@atomicits.com",
+  },
+  {
+    "r1cell"  :2,
+    "r2cell"  :"karthick",
+    "r3cell"  :"kumar@atomicits.com",
+  },
+  {
+    "r1cell"  :3,
+    "r2cell"  :"kumar",
+    "r3cell"  :"k@atomicits.com",
+  }
+];
+var thead_data = [
+  "ID",
+  "Name",
+  "Email"
+];
+var list_data = [
+  "List Data 1",
+  "List Data 2",
+  "List Data 3",
+];
+var navs_data = [
+  {
+    "name"  : "Home",
+    "path"  : "/home/path",
+    "value" : "active"
+  },{
+    "name"  : "profile",
+    "path"  : "/profile/path",
+    "value" : "inactive"
+  },{
+    "name"  : "Message",
+    "path"  : "/message/path",
+    "value" : "inactive"
+  }
+]
+var navs_data2 = [
+  {
+    "name"  : "Home",
+    "path"  : "/home/path",
+    "value" : "active"
+  },{
+    "name"  : "profile",
+    "path"  : "/profile/path",
+    "value" : "inactive"
+  },{
+    "name"  : "Message",
+    "path"  : "/message/path",
+    "value" : "inactive"
+  },{
+    "name"  : "Disabled link",
+    "path"  : "/message/path",
+    "value" : "inactive disabled"
+  }
+]
+var badge_navs_data3 = [
+  {
+    "name"    : "Home",
+    "path"    : "/home/path",
+    "value"   : "active",
+    "badge"   : "badge",
+    "b_value" : ""
+  },{
+    "name"    : "profile",
+    "path"    : "/profile/path",
+    "value"   : "inactive",
+    "badge"   : "badge",
+    "b_value" : ""
+  },{
+    "name"    : "Message",
+    "path"    : "/message/path",
+    "value"   : "inactive",
+    "badge"   : "badge",
+    "b_value" : "35"
+  }
+]
+var c_data = [
+  {
+  "count" : 0,
+  "src"   : "https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"
+  },{
+  "count" : 1,
+  "src"   : "https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"
+  }, {
+  "count" : 2,
+  "src"   : "https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"
+  }
+]
+var TableComponent = React.createClass({
+  render: function(){
+    return (
+  <Row>
+    <Column md-6>
+        <h3>NavBar</h3>
+        <h5>NavBar - Default Navbar</h5>
+        <Navbar>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+              <Navs data={navs_data} navbar/>
+        </Navbar>
+        <h5>NavBar - Form</h5>
+        <Navbar>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+            <Form form-left>
+                <FormGroup>
+                    <TextInput id="search" name="search"  placeholder="search..." />
+                    &nbsp;&nbsp;&nbsp;
+                    <SubmitButton default>Search</SubmitButton>
+                </FormGroup>
+            </Form>
+        </Navbar>
+        <h5>NavBar - Buttons</h5>
+        <Navbar>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+                <Button default navbar-btn>Sign in</Button>
+        </Navbar>
+        <h5>NavBar - Text</h5>
+        <Navbar>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+                <Element navbar-text>Sign in as Atomic</Element>
+        </Navbar>
+        <h5>NavBar - Non-Navbar Links</h5>
+        <Navbar>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+                <Element navbar-text>Sign in as <NavLink href="#" navbar-link>Atomic</NavLink></Element>
+        </Navbar>
+        <h5>NavBar - Fixed to Top</h5>
+        <Navbar top>
+            <NavbarHeader>
+                <NavbarBrand href="#">Navbar Fixed to Top</NavbarBrand>
+            </NavbarHeader>
+            <Navs data={navs_data} navbar/>
+        </Navbar>
+        <h5>NavBar - Fixed to Bottom</h5>
+        <Navbar bottom>
+            <NavbarHeader>
+                <NavbarBrand href="#">Navbar Fixed to Bottom</NavbarBrand>
+            </NavbarHeader>
+            <Navs data={navs_data} navbar/>
+        </Navbar>
+        <h5>NavBar - Static Top</h5>
+        <Navbar static>
+            <NavbarHeader>
+                <NavbarBrand href="#">Navbar Fixed to Bottom</NavbarBrand>
+            </NavbarHeader>
+            <Navs data={navs_data} navbar/>
+        </Navbar>
+        <h5>NavBar - Inverted Navbar</h5>
+        <Navbar inverse>
+            <NavbarHeader>
+                <NavbarBrand href="#">Brand</NavbarBrand>
+            </NavbarHeader>
+            <Navs data={navs_data} navbar/>
+        </Navbar>
+        <ClearFix />
+        <hr/>
+        <h3>Panels</h3>
+        <h5>Panel - with Heading</h5>
+        <Panel default>
+            <PanelHeading>Panel heading without title</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+        <h5>Panel - with Footer</h5>
+        <Panel default>
+            <PanelBody>Panel content</PanelBody>
+            <PanelFooter>Panel footer</PanelFooter>
+        </Panel>
+        <h5>Panel - Contextual alternatives</h5>
+        <Panel primary>
+            <PanelHeading>Panel heading</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+        <Panel success>
+            <PanelHeading>Panel heading</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+        <Panel info>
+            <PanelHeading>Panel heading</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+        <Panel warning>
+            <PanelHeading>Panel heading</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+         <Panel danger>
+            <PanelHeading>Panel heading</PanelHeading>
+            <PanelBody>Panel content</PanelBody>
+        </Panel>
+        <h5>Panel - with Tables</h5>
+        <Panel default>
+            <PanelHeading>Panel Title</PanelHeading>
+            <PanelBody>Some default panel content here. </PanelBody>
+                <Table table-responsive>
+                    <THead thead_data={thead_data}></THead>
+                    <TBody tbody_data={tbody_data}></TBody>
+                </Table>
+        </Panel>
+        <h5>Panel - with List Group</h5>
+        <Panel default>
+            <PanelHeading>Panel Title</PanelHeading>
+            <PanelBody>Some default panel content here. </PanelBody>
+                <ListGroup list_data={list_data}></ListGroup>
+        </Panel>
+        <hr/>
+        <h3>Badges</h3>
+            <a href="#">Inbox <Span badge>42</Span></a>
+            &nbsp;&nbsp;&nbsp;
+            <Button primary>Messages
+                <Span badge>42</Span>
+            </Button>
+            <BadgeNavs data={badge_navs_data3} pills/>
+        <ClearFix/>
+        <hr/>
+        <h3>carousel slide</h3>
+        <Carousel id="myCarousel">
+            <CarouselList data={c_data}></CarouselList>
+            <CarouselSlide>
+                <CarouselItem active>
+                    <img src="https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"/>
+                </CarouselItem>
+                <CarouselItem>
+                    <img src="https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"/>
+                </CarouselItem>
+                <CarouselItem>
+                    <img src="https://d2eip9sf3oo6c2.cloudfront.net/series/covers/000/000/005/full/react_flux_series_banner_2.png?1404147531"/>
+                </CarouselItem>
+            </CarouselSlide>
+            <CarouselControl_Left></CarouselControl_Left>
+            <CarouselControl_Right></CarouselControl_Right>
+        </Carousel>
+        <hr/>
+        <h3>DateRange Picker</h3>
+        <DateRange></DateRange>
+        <hr/>
+        <h3>Navs</h3>
+        <h5>Navs - Tabs</h5>
+            <Navs data={navs_data} tabs/>
+        <ClearFix />
+        <h5>Navs - Pills</h5>
+            <Navs data={navs_data} pills/>
+        <ClearFix />
+         <h5>Navs - Tabs Justified</h5>
+            <Navs data={navs_data} tabs justified/>
+         <h5>Navs - Pills Justified</h5>
+            <Navs data={navs_data} pills justified/>
+        <ClearFix />
+         <h5>Navs - Disabled Link</h5>
+            <Navs data={navs_data2} pills/>
+        <ClearFix />
+        <hr/>
+        <h3>Progress Bar</h3>
+        <h5>Progress Bar - Basic Progress Bar</h5>
+        <Progress>
+            <ProgressBar style={{width: '60%'}}>
+                <Span sr-only>60% Complete</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <h5>Progress Bar - With Lables</h5>
+        <Progress>
+            <ProgressBar style={{width: '80%'}}>
+                <Span>80% Complete</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <h5>Progress Bar - Contextual Alternatives</h5>
+        <Progress>
+            <ProgressBar success style={{width: '40%'}}>
+                <Span sr-only>40% Complete (success)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar info style={{width: '20%'}}>
+                <Span sr-only>20% Complete (info)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar warning style={{width: '60%'}}>
+                <Span sr-only>60% Complete (warning)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar danger style={{width: '80%'}}>
+                <Span sr-only>80% Complete (danger)</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <h5>Progress Bar - Striped</h5>
+        <Progress>
+            <ProgressBar success striped style={{width: '40%'}}>
+                <Span sr-only>40% Complete (success)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar info striped style={{width: '20%'}}>
+                <Span sr-only>20% Complete (info)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar warning striped style={{width: '60%'}}>
+                <Span sr-only>60% Complete (warning)</Span>
+            </ProgressBar>
+        </Progress>
+        <Progress>
+            <ProgressBar danger striped style={{width: '80%'}}>
+                <Span sr-only>80% Complete (danger)</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <h5>Progress Bar - Animated</h5>
+        <Progress>
+            <ProgressBar striped active style={{width: '70%'}}>
+                <Span sr-only>60% Complete</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <h5>Progress Bar - Stacked</h5>
+        <Progress>
+            <ProgressBar success style={{width: '45%'}}>
+                <Span>Free space</Span>
+            </ProgressBar>
+            <ProgressBar warning striped active style={{width: '20%'}}>
+                <Span>Warning</Span>
+            </ProgressBar>
+            <ProgressBar danger style={{width: '15%'}}>
+                <Span>Danger</Span>
+            </ProgressBar>
+        </Progress>
+        <ClearFix />
+        <hr/>
+        <h3>Responsive Embeded Component</h3>
+        <Embed lg>
+            <IFrame src="https://www.youtube.com/embed/KVZ-P-ZI6W4?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr">
+            </IFrame>
+        </Embed>
+        <hr/>
+        <h3>Modal Form Small</h3>
+        <Button primary data-toggle="modal" data-target="#myModal_sm">Small model</Button>
+        <Modal id="myModal_sm">
+            <ModalDialog sm>
+                <ModalHeader>
+                    <Button close data-dismiss="modal">&times;</Button>
+                    <ModalTitle>Modal Heading</ModalTitle>
+                </ModalHeader>
+                <ModalBody>
+                    <p>This is a small modal.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <Button default data-dismiss="modal">Close</Button>
+                    <Button primary data-dismiss="modal">Save</Button>
+                </ModalFooter>
+            </ModalDialog>
+        </Modal>
+        <ClearFix />
+         <h3>Modal Form Large</h3>
+        <Button primary data-toggle="modal" data-target="#myModal_lg">Large model</Button>
+        <Modal id="myModal_lg">
+            <ModalDialog lg>
+                <ModalHeader>
+                    <Button close data-dismiss="modal">&times;</Button>
+                    <ModalTitle>Modal Heading</ModalTitle>
+                </ModalHeader>
+                <ModalBody>
+                    <p>This is a large modal.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <Button default data-dismiss="modal">Close</Button>
+                    <Button primary data-dismiss="modal">Save</Button>
+                </ModalFooter>
+            </ModalDialog>
+        </Modal>
+        <ClearFix />
+        <hr/>
+        <h3>Images</h3>
+        <h5>Images - Responsive</h5>
+        <Img responsive src="https://yt3.ggpht.com/-nRs8X3KQvwU/AAAAAAAAAAI/AAAAAAAAAAA/lKO16oQMGkM/s88-c-k-no/photo.jpg" ></Img>
+        <ClearFix />
+        <h5>Images - Shapes</h5>
+        <Img rounded src="https://yt3.ggpht.com/-nRs8X3KQvwU/AAAAAAAAAAI/AAAAAAAAAAA/lKO16oQMGkM/s88-c-k-no/photo.jpg" ></Img>
+        <Img circle src="https://yt3.ggpht.com/-nRs8X3KQvwU/AAAAAAAAAAI/AAAAAAAAAAA/lKO16oQMGkM/s88-c-k-no/photo.jpg" ></Img>
+        <Img thumbnail src="https://yt3.ggpht.com/-nRs8X3KQvwU/AAAAAAAAAAI/AAAAAAAAAAA/lKO16oQMGkM/s88-c-k-no/photo.jpg" ></Img>
+        <hr/>
+        <h3>Pop Over</h3>
+        <h5>Pop Over - Top</h5>
+            <PopOver info data-toggle="popover" title="Popover Header" data-content="Some content" data-placement="top">Popover on Top
+            </PopOver>
+        <h5>Popover - Left</h5>
+            <PopOver info data-toggle="popover" title="Popover Header" data-content="Some content" data-placement="left">Popover on Left
+            </PopOver>
+        <h5>Pop Over - Right</h5>
+            <PopOver info data-toggle="popover" title="Popover Header" data-content="Some content" data-placement="right">Popover on Right
+            </PopOver>
+        <h5>Pop Over - Bottom</h5>
+            <PopOver info data-toggle="popover" title="Popover Header" data-content="Some content" data-placement="bottom">Popover on Bottom
+            </PopOver>
+        <hr/>
+        <h3>Table striped</h3>
+        <Table striped>
+            <THead thead_data={thead_data}></THead>
+            <TBody tbody_data={tbody_data}></TBody>
+        </Table>
+        <ClearFix/>
+        <hr/>
+        <h3>Table bordered</h3>
+        <Table bordered>
+            <THead thead_data={thead_data}></THead>
+            <TBody tbody_data={tbody_data}></TBody>
+        </Table>
+        <ClearFix/>
+        <hr/>
+        <h3>Table hover</h3>
+        <Table hover>
+            <THead thead_data={thead_data}></THead>
+            <TBody tbody_data={tbody_data}></TBody>
+        </Table>
+        <ClearFix/>
+        <hr/>
+        <h3>Table responsive</h3>
+        <Table responsive>
+            <THead thead_data={thead_data}></THead>
+            <TBody tbody_data={tbody_data}></TBody>
+        </Table>
+    </Column>
+</Row>
+     );
+   }
+});
+var mainContainer = (
+  <Container fluid id="mainContainer">
+      <Row>
+        <Column sm-2 md-2>
+            <ClearFix show-xs />
+        </Column>
+        <Column sm-10 md-10 id="container">
+        </Column>
+      </Row>
+  </Container>
+);
+    React.render(mainContainer, document.body);
+    React.render(<TableComponent />, document.getElementById("container"));
+  </script>
+</head>
+<body>
+</body>
+</html>

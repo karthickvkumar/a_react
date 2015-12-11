@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - Post</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="bootstrap/css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="../lib/utils.js"></script>
+    <script type="text/jsx" src="../lib/aphrodite.jsx"></script>
+    <script type="text/jsx">
+      var data = [
+        {
+          "id":1,
+          "PostDate":"05 August 2015",
+          "PostTime":"12:05 AM",
+          "PostImage":"dist/img/post_img.jpg",
+          "PostContent":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise.",
+          "PostShare":"Share",
+          "PostLike":"Like",
+          "Comments":[{"UserName":"Emmanuel","UserComment":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise."}],
+          "commentnumber":5,
+        },
+        {
+          "id":2,
+          "PostDate":"05 December 2015",
+          "PostTime":"05:30 PM",
+          "PostImage":"dist/img/post_img.jpg",
+          "PostContent":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise.",
+          "PostShare":"Share",
+          "PostLike":"Like",
+          "Comments":[{"UserName":"Emmanuel","UserComment":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise."}],
+          "commentnumber":6,
+        },
+        {
+          "id":3,
+          "PostDate":"05 December 2015",
+          "PostTime":"05:30 PM",
+          "PostImage":"dist/img/post_img.jpg",
+          "PostContent":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise.",
+          "PostShare":"Share",
+          "PostLike":"Like",
+          "Comments":[{"UserName":"Emmanuel","UserComment":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise."}],
+          "commentnumber":3,
+        }
+      ];
+      var PostInfo = React.createClass({
+        getDefaultProps: function() {
+          return {
+            elementClass: "section",
+            className: "content profile_content",
+          };
+        },
+        render:function() {
+          return(
+            <Element {...this.props}>
+                {this.props.children}
+            </Element>
+          );
+        }
+      });
+
+      var PostDate = React.createClass({
+        render: function() {
+          return(
+            <span>{this.props.PostDate}</span>
+          );
+        }
+      });
+
+      var PostTime = React.createClass({
+        render:function() {
+          return(
+            <span style={{marginLeft: 20}}><i className="fa fa-clock-o"></i> {this.props.PostTime}</span>
+          );
+        }
+      });
+
+      var PostImg = React.createClass({
+        render:function() {
+          return(
+            <Element {...this.props}>
+              <img alt="User Image" className="user-image_1" src={this.props.PostImage} />
+            </Element>
+          );
+        }
+      });
+
+      var PostShare = React.createClass({
+        render:function() {
+          return(
+            <div>
+              <a className="link-black text-sm" href="#"><i className="fa fa-share margin-r-5"></i> {this.props.PostShare}</a>
+            </div>
+          );
+        }
+      });
+
+      var PostLike = React.createClass({
+        render:function() {
+          return(
+            <div>
+              <a className="link-black text-sm" href="#"><i className="fa fa-thumbs-o-up margin-r-5"></i> {this.props.PostLike}</a>
+            </div>
+          );
+        }
+      });
+
+      var CommentCount = React.createClass({
+        render:function() {
+          return(
+            <div>
+              <a className="link-black text-sm" href="#"><i className="fa fa-comments-o margin-r-5"></i> Comments ({this.props.commentnumber})</a>
+            </div>
+          );
+        }
+      });
+
+      var PostComments = React.createClass({
+        render:function() {
+          var comment = this.props.data.map(function(comment){
+            return(
+              <div className="user-block fm_hori comments">
+                <i className="fa fa-comments-o margin-r-5"></i>
+              <span className="casual">{comment.UserName}</span>
+              <p>{comment.UserComment}</p>
+              </div>
+            );
+          })
+          return(
+            <div className="post_comment">
+              {comment}
+            </div>
+          );
+        }
+      });
+
+      var Posts = React.createClass({
+       render: function() {
+        var postdata = this.props.data.map(function (post) {
+          return (
+            <div id="profile_posts">
+              <div className="post_date">
+                <PostDate PostDate={post.PostDate} />
+                <PostTime PostTime={post.PostTime} />
+              </div>
+              <PostImg PostImage={post.PostImage} />
+              <ul className="list-inline">
+                <li><PostShare PostShare={post.PostShare} /></li>
+                <li><PostLike PostLike={post.PostLike} /></li>
+                <li className="pull-right">
+                  <CommentCount commentnumber={post.commentnumber} />
+                </li>
+              </ul>
+              <PostComments data={post.Comments} />
+            </div>
+          );
+        });
+          return (
+             <PostInfo>{postdata}</PostInfo>
+          );
+        }
+      });
+
+    React.render(<Posts data={data} />,document.body);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

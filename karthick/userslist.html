@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - UsersList</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/ionicons.min.css">
+    <link rel="stylesheet" href="bootstrap/css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="../lib/utils.js"></script>
+    <script type="text/jsx" src="../lib/aphrodite.jsx"></script>
+    <script type="text/jsx">
+var data = [
+  {
+  "id"        :1,
+  "UserImage" :"dist/img/avatar.png",
+  "UserName"  :"Doom",
+  "Time"      :"3:50",
+  "Days"      :"3 days ago",
+  "Count"     :55,
+  "Post"      :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id"        :2,
+  "UserImage" :"dist/img/avatar2.png",
+  "UserName"  :"Rock",
+  "Time"      :"5:50",
+  "Days"      :"Yesterday",
+  "Count"     :9,
+  "Post"       :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id"        :3,
+  "UserImage" :"dist/img/avatar3.png",
+  "UserName"  :"July",
+  "Time"      :"3:50",
+  "Days"      :"3 days ago",
+  "Count"     :119,
+  "Post"      :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id"        :4,
+  "UserImage" :"dist/img/avatar4.png",
+  "UserName"  :"July",
+  "Time"      :"3:50",
+  "Days"      :"Got it few minutes ago",
+  "Count"     :2,
+  "Post"      :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id"        :5,
+  "UserImage" :"dist/img/avatar5.png",
+  "UserName"  :"July",
+  "Time"      :"3:50",
+  "Days"      :"3 days ago",
+  "Count"     :19,
+  "Post"      :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id"        :6,
+  "UserImage" :"dist/img/avatar2.png",
+  "UserName"  :"July",
+  "Time"      :"3:50",
+  "Days"      :"3 days ago",
+  "Count"     :50,
+  "Post"      :"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+]
+var UserInfo = React.createClass({
+  getDefaultProps: function() {
+    return {
+      elementClass: "section",
+      className: "content",
+    };
+  },
+  render:function() {
+    return(
+      <Element {...this.props}>
+          {this.props.children}
+      </Element>
+    );
+  }
+});
+
+var UserImg = React.createClass({
+  render:function() {
+    return(
+      <img alt="User Image" className="img-circle img-bordered-sm" src={this.props.UserImage} />
+    );
+  }
+});
+
+var UserName = React.createClass({
+    render:function() {
+      return(
+        <a href="#">{this.props.UserName}</a>
+      );
+    }
+});
+
+var UserCount = React.createClass({
+	render:function() {
+		return (
+			<span className="label label-danger">{this.props.Count}</span>
+		);
+	}
+});
+
+var PostDuration = React.createClass({
+	render:function() {
+		return(
+			<span className="description">
+			{this.props.Time} - {this.props.Days}
+			</span>
+		);
+	}
+});
+
+var UsersPost = React.createClass({
+  render:function() {
+    return(
+      <p>{this.props.Post}</p>
+    );
+  }
+});
+
+var UsersList = React.createClass({
+	render: function() {
+    var userdata = this.props.data.map(function (user) {
+      return (
+	  		<div className="post clearfix">
+					<div className="user-block">
+						<UserImg UserImage={user.UserImage} />
+						<span className="username">
+							<UserName UserName={user.UserName} />
+							<a data-toggle="dropdown" className="dropdown-toggle" href="#"><UserCount Count={user.Count} /></a>
+						</span>
+						<PostDuration Time={user.Time} Days={user.Days} />
+          </div>
+          <UsersPost Post={user.Post} />
+        </div>
+      );
+    });
+    return (
+    	<div className="content-wrapper">
+				<UserInfo>{userdata}</UserInfo>
+			</div>
+    );
+  }
+});
+
+    React.render(<UsersList data={data}/>,document.body);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

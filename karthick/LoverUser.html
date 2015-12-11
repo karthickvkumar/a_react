@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - users</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/lover.jsx"></script>
+    <script type="text/jsx">
+var profile_data = [
+  {
+  "name"        : "Karthick Kumar",
+  "img"         : "img/avatar5.png",
+  "role"        : "Web Developer",
+  "joinedDate"  : "Nov. 2012"
+
+  }
+]
+var navs_data = [
+  {
+    "name"        : "Messages",
+    "anchorlink"  : "/messages/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "Find Matches",
+    "anchorlink"  : "/find_matches/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "Feeds",
+    "anchorlink"  : "/feeds/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "My Profile",
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png",
+    "profile"     : profile_data
+  }
+]
+
+var sidebarUser_data = [
+  {
+    "name"        : "Users",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Users 1",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Users 2",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Users 3",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Users 4",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Users 5",
+    "anchorlink"  : "#"
+  }
+]
+var select_data = [
+      "Animal",
+      "Birds",
+      "Fishes",
+      "Insects"
+    ];
+var data = [
+  {
+  "id":1,
+  "UserImage":"img/avatar.png",
+  "UserName":"Doom",
+  "Time":"3:50",
+  "Days":"3 days ago",
+  "Count":55,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id":2,
+  "UserImage":"img/avatar2.png",
+  "UserName":"Rock",
+  "Time":"5:50",
+  "Days":"Yesterday",
+  "Count":9,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id":3,
+  "UserImage":"img/avatar3.png",
+  "UserName":"July",
+  "Time":"3:50",
+  "Days":"3 days ago",
+  "Count":119,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id":4,
+  "UserImage":"img/avatar4.png",
+  "UserName":"July",
+  "Time":"",
+  "Days":"Got it few minutes ago",
+  "Count":2,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id":5,
+  "UserImage":"img/avatar5.png",
+  "UserName":"July",
+  "Time":"3:50",
+  "Days":"3 days ago",
+  "Count":19,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  },
+  {
+  "id":6,
+  "UserImage":"img/avatar2.png",
+  "UserName":"July",
+  "Time":"3:50",
+  "Days":"3 days ago",
+  "Count":50,
+  "Post":"Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for  its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.",
+  }
+]
+var LoverComponent = React.createClass({
+  render: function(){
+    return (
+<Element>
+  <Header>
+    <Logo href="#">
+      <span className="logo-mini">Love</span>
+      <span className="logo-lg">Love</span>
+    </Logo>
+    <Navbar>
+      <SidebarToggle href="#" data-toggle="offcanvas" role="button"></SidebarToggle>
+        <Element className="navbar-custom-menu">
+          <Navs data={navs_data}/>
+        </Element>
+    </Navbar>
+  </Header>
+    <section className="edit row">
+       <button className="btn btn-primary pull-right btn-sm col-sm-3" type="submit">Edit</button>
+    </section>
+  <UserAside data={sidebarUser_data}>
+  <UserSearch />
+  </UserAside>
+  <UsersList data={data}/>
+</Element>
+     );
+   }
+});
+    React.render(<LoverComponent />,document.getElementById('content'));
+  </script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper" id="content">
+  </div>
+  <footer class="main-footer navbar-fixed-bottom">
+      <div class="pull-right hidden-xs">
+      </div>
+      <strong>Love Copyright &copy; 2015.</strong> All rights reserved.
+  </footer>
+  <script src="js/jQuery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.min.js"></script>
+</body>
+</html>
+
+
+
+

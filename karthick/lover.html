@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - interests</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/lover.jsx"></script>
+    <script type="text/jsx">
+var profile_data = [
+  {
+  "img"         : "img/avatar5.png",
+  "name"        : "Admin"
+  }
+]
+var navs_data = [
+  {
+    "anchorlink"  : "/messages/path",
+    "count"       : 4
+  },
+  {
+    "name"        : "Admin",
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png",
+    "profile"     : profile_data
+  }
+]
+
+var sidebarAdmin_data = [
+  {
+    "name"        : "Users",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Notification",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Interests",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Add Interest",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Filters",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Search Terms",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Trending Interests",
+    "anchorlink"  : "#"
+  },
+  {
+    "name"        : "Facebook Interests",
+    "anchorlink"  : "#"
+  }
+]
+var select_data = [
+      "Animal",
+      "Birds",
+      "Fishes",
+      "Insects"
+    ];
+var LoverComponent = React.createClass({
+  render: function(){
+    return (
+<Element>
+  <Header>
+    <Logo href="#">
+      <span className="logo-mini">Love</span>
+      <span className="logo-lg">Love</span>
+    </Logo>
+    <Navbar>
+      <SidebarToggle href="#" data-toggle="offcanvas" role="button"></SidebarToggle>
+        <Element className="navbar-custom-menu">
+          <AdminNavs data={navs_data}/>
+        </Element>
+    </Navbar>
+  </Header>
+  <AdminAside data={sidebarAdmin_data}></AdminAside>
+    <ContentWrapper>
+      <ContentHeader>
+      <h1>Add Interests</h1>
+      </ContentHeader>
+        <Content>
+        <ContentArea>
+          <ContentPanel>
+            <Form>
+            <BodyBox>
+            <FormGroup>
+            <TextInput id="insertname" label="Email address" placeholder="Insert Name" />
+            </FormGroup>
+            <FormGroup>
+            <Label>Category Type</Label>
+            <Select options={select_data} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleInputFile">Select Picture</Label>
+              <MulitpleImage></MulitpleImage>
+            </FormGroup>
+            </BodyBox>
+            <Element class="ad_adimg img_interests_3">
+              <ImageView />
+            </Element>
+            <FooterBox>
+              <Button warning>Cancel</Button>&nbsp;
+              <Button success>Accept</Button>
+            </FooterBox>
+            </Form>
+          </ContentPanel>
+        </ContentArea>
+        </Content>
+    </ContentWrapper>
+</Element>
+     );
+   }
+});
+    React.render(<LoverComponent />,document.getElementById('content'));
+  </script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper" id="content">
+  </div>
+  <footer class="main-footer navbar-fixed-bottom">
+      <div class="pull-right hidden-xs">
+      </div>
+      <strong>Love Copyright &copy; 2015.</strong> All rights reserved.
+  </footer>
+</body>
+</html>
+
+
+
+

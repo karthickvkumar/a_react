@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Love - interests</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/love.css">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/lover.jsx"></script>
+    <script type="text/jsx">
+var profile_data = [
+  {
+  "name"        : "Karthick Kumar",
+  "img"         : "img/avatar5.png",
+  "role"        : "Web Developer",
+  "joinedDate"  : "Nov. 2012"
+
+  }
+]
+var navs_data = [
+  {
+    "name"        : "Messages",
+    "anchorlink"  : "/messages/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "Find Matches",
+    "anchorlink"  : "/find_matches/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "Feeds",
+    "anchorlink"  : "/feeds/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "name"        : "My Profile",
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png",
+    "profile"     : profile_data
+  }
+]
+var userblock_data = [
+  {
+    "img"              : "img/avatar5.png",
+    "intrestCount"     : "13",
+    "moreIntrestlink"  : "/more_intrest/path",
+    "refineMatchlink"  : "/refine_match/path"
+  }
+]
+
+
+var findMatch_data = [
+  {
+    "anchorlink"  : "/messages/path",
+    "img"         : "img/avatar.png"
+  },
+  {
+    "anchorlink"  : "/find_matches/path",
+    "img"         : "img/avatar3.png"
+  },
+  {
+    "anchorlink"  : "/feeds/path",
+    "img"         : "img/avatar4.png"
+  },
+  {
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "anchorlink"  : "/messages/path",
+    "img"         : "img/avatar.png"
+  },
+  {
+    "anchorlink"  : "/find_matches/path",
+    "img"         : "img/avatar3.png"
+  },
+  {
+    "anchorlink"  : "/feeds/path",
+    "img"         : "img/avatar4.png"
+  },
+  {
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png"
+  },
+  {
+    "anchorlink"  : "/messages/path",
+    "img"         : "img/avatar.png"
+  },
+  {
+    "anchorlink"  : "/find_matches/path",
+    "img"         : "img/avatar3.png"
+  },
+  {
+    "anchorlink"  : "/feeds/path",
+    "img"         : "img/avatar4.png"
+  },
+  {
+    "anchorlink"  : "/my_profile/path",
+    "img"         : "img/avatar5.png"
+  }
+]
+var LoverComponent = React.createClass({
+  render: function(){
+    return (
+<Element>
+  <Header>
+    <Logo href="#">
+      <span className="logo-mini">Love</span>
+      <span className="logo-lg">Love</span>
+    </Logo>
+    <Navbar>
+        <Element className="navbar-custom-menu">
+          <Navs data={navs_data}/>
+        </Element>
+    </Navbar>
+  </Header>
+  <SearchRow />
+   <div class="clear"></div>
+      <div class="content-wrapper_1">
+      <UserBlock data={userblock_data} />
+      <FindMatches data={findMatch_data}/>
+      </div>
+</Element>
+     );
+   }
+});
+    React.render(<LoverComponent />,document.getElementById('content'));
+  </script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper" id="content">
+  </div>
+  <footer class="main-footer navbar-fixed-bottom">
+      <div class="pull-right hidden-xs">
+      </div>
+      <strong>Love Copyright &copy; 2015.</strong> All rights reserved.
+  </footer>
+</body>
+</html>
+
+
+
+

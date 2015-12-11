@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aphrodite Component Library</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/aphrodite.jsx"></script>
+    <script type="text/jsx">
+var navs_data = [
+  {
+    "name"  : "Home",
+    "path"  : "#home"
+  },{
+    "name"  : "profile",
+    "path"  : "#profile"
+  },{
+    "name"  : "About",
+    "path"  : "#about"
+  },{
+    "name"  : "Message",
+    "path"  : "#message"
+  },{
+    "name"  : "Contact",
+    "path"  : "#contact"
+  }
+]
+var ScrollspyComponent = React.createClass({ render: function(){ return (
+  <Row>
+      <Column md-6>
+          <h3>Scrollspy</h3>
+          <Navbar top inverse>
+              <NavbarHeader>
+                  <NavbarBrand href="#">Brand</NavbarBrand>
+              </NavbarHeader>
+              <Navs data={navs_data} navbar/>
+          </Navbar>
+          <Scrollspy id="home" className="container">
+              <h1>Home</h1>
+              <p>
+              Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!
+              </p>
+          </Scrollspy>
+          <Scrollspy id="profile">
+              <h1>Profile</h1>
+              <p>
+              Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!
+              </p>
+          </Scrollspy>
+          <Scrollspy id="about">
+              <h1>About</h1>
+              <p>
+              Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!
+              </p>
+          </Scrollspy>
+          <Scrollspy id="message">
+              <h1>Message</h1>
+              <p>
+              Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!
+              </p>
+          </Scrollspy>
+          <Scrollspy id="contact">
+              <h1>Contact</h1>
+              <p>
+              Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!
+              </p>
+          </Scrollspy>
+      </Column>
+  </Row>
+     );
+  }
+});
+var mainContainer = (
+  <Container fluid id="mainContainer">
+    <Row>
+      <Column sm-2 md-2>
+        <ClearFix/>
+      </Column>
+      <Column id="container">
+      </Column>
+    </Row>
+  </Container>
+);
+    React.render(mainContainer, document.body);
+    React.render(<ScrollspyComponent />, document.getElementById("container"));
+  </script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+</body>
+</html>

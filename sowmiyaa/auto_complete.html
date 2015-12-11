@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>React.js auto complete</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+  <script type="text/jsx" src="src/autocomplete.jsx"></script>
+  <script type="text/jsx">
+  var App = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <Autocomplete />
+        </div>
+      );
+    }
+  });
+React.render(<App />,document.getElementById('content'));
+  </script>
+</head>
+<body>
+<div id='content'></div>
+</body>
+</html>

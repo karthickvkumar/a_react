@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aphrodite Component Library</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <script src="../js/react-with-addons.js"></script>
+    <script src="../js/JSXTransformer.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/lodash.min.js"></script>
+
+    <script src="src/utils.js"></script>
+    <script type="text/jsx" src="src/aphrodite.jsx"></script>
+    <style>
+input[type="file"] {
+
+ display:block;
+}
+.imageThumb {
+ max-height: 119px;
+ margin: 10px 10px 0 0;
+ padding: 1px;
+ }
+</style>
+    <script type="text/jsx">
+var list_items = [
+  {
+    "name"  : "first name"
+  },{
+    "name"  : "last name"
+  },{
+    "name"  : "username"
+  }
+]
+var thead_data = [
+  "Project",
+  "Cost Item",
+  "Total Value",
+  "Already Paid",
+  "Gross Balance",
+  "Gross Allocation Now",
+  "Deductions",
+  "Net Amount Allocated",
+  "Notes",
+  "Action"
+];
+var data1 = {
+  "AGS Enterprices"       : "#",
+  "Aqua Equipment"        : "#",
+  "Bluesphere"            : "#",
+  "Candy Hardwares"       : "#",
+  "DKS Engineering works" : "#"
+}
+var project = {
+  "apera"   :"1",
+  "tamame"  :"2",
+  "varchas" :"3"
+}
+var data = {
+  costitems:[
+    {
+      "project_id"      : "#",
+      "cost_item"       : "#",
+      "total_value"     : "#",
+      "already_paid"    : "#",
+      "gross_balance"   : "#",
+      "gross_allocation": "#",
+      "deductions"      : "#",
+      "net_amount"      : "#",
+      "notes"           : "#"
+    }
+  ],
+  structure:[
+    {
+      "type"    :"select",
+      "option"  :list_items
+    },{
+      "type"    :"text",
+      "option"  :"readonly"
+    },{
+      "type"    :"radio",
+      "option"  :"unchecked"
+    },{
+      "type"    :"checkbox",
+      "option"  :"chk_box"
+    },{
+      "type"    :"text",
+      "option"  :"disabled"
+    },{
+      "type"    :"text",
+      "option"  :"total_value"
+    },{
+      "type"    :"span",
+      "option"  :"$100"
+    },{
+      "type"    :"text",
+      "option"  :"checkbox_button"
+    },{
+      "type"    :"text",
+      "option"  :"total_value"
+    }
+  ]
+};
+var NestedComponent = React.createClass({
+  render: function(){
+    return (
+  <Row>
+    <Column md-12>
+        <h3>Nested Form Component</h3>
+        <Table bordered>
+          <THead thead_data={thead_data}></THead>
+          <HasMany data={data}></HasMany>
+        </Table>
+        <h3>File upload with single Imagepreview</h3>
+          <MulitpleImage></MulitpleImage>
+        <h3>File upload with Multiple Image preview</h3>
+          <MulitpleImage />
+          <ImageView><h5>pic</h5></ImageView>
+    </Column>
+</Row>
+    );
+  }
+});
+var mainContainer = (
+  <Container fluid id="mainContainer">
+      <Row>
+        <Column sm-12 md-12 id="container">
+        </Column>
+        <Column sm-12 md-12 id="container-costitems">
+        </Column>
+      </Row>
+  </Container>
+);
+    React.render(mainContainer, document.body);
+    React.render(<NestedComponent />, document.getElementById("container"));
+  </script>
+</head>
+<body>
+</body>
+</html>
